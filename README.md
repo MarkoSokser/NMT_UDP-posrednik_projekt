@@ -94,6 +94,7 @@ Nakon što oba klijenta pošalju barem jedan paket, posrednik će ih registrirat
 
 - `server.c` - UDP posrednik server 
 - `control_client.c` - Kontrolni klijent za upravljanje posrednikom 
+- `test_forward.py` - Automatizirani test skript za provjeru prosljeđivanja
 
 ## Funkcionalnosti
 
@@ -107,6 +108,4 @@ Nakon što oba klijenta pošalju barem jedan paket, posrednik će ih registrirat
 - Posrednik čeka na prvi paket od svakog peera da bi ih registrirao
 - Forwarding mora biti uključen (ON) da bi paketi bili prosljeđeni
 - RESET briše informacije o peerovima i omogućava registraciju novih klijenata
-- Treći klijent koji pokuša slati pakete će biti ignoriranubuntu@ubuntu2004:~/Desktop/NMT_UDP-posrednik_projekt-main$ nc -u 127.0.0.1 5000
- 
-
+- Treći klijent koji pokuša slati pakete će biti ignoriran
