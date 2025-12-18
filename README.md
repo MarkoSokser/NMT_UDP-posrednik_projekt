@@ -98,10 +98,10 @@ Nakon što oba klijenta pošalju barem jedan paket, posrednik će ih registrirat
 
 ## Funkcionalnosti
 
-- ✅ Automatska registracija dva peer-a
-- ✅ Dvosmjerno prosljeđivanje UDP paketa
-- ✅ Kontrola uključivanja/isključivanja prosljeđivanja
-- ✅ Reset funkcionalnost za ponovnu registraciju peerova
+-  Automatska registracija dva peer-a
+-  Dvosmjerno prosljeđivanje UDP paketa
+-  Kontrola uključivanja/isključivanja prosljeđivanja
+-  Reset funkcionalnost za ponovnu registraciju peerova
 
 ## Napomene
 
@@ -109,3 +109,4 @@ Nakon što oba klijenta pošalju barem jedan paket, posrednik će ih registrirat
 - Forwarding mora biti uključen (ON) da bi paketi bili prosljeđeni
 - RESET briše informacije o peerovima i omogućava registraciju novih klijenata
 - Treći klijent koji pokuša slati pakete će biti ignoriran
+
