@@ -72,24 +72,6 @@ sudo apt install python3 netcat-openbsd
 
 ## Kompajliranje
 
-### Korištenje Makefile-a (preporučeno)
-
-```bash
-# Kompajlira sve
-make
-
-# Kompajlira i pokreće test
-make test
-
-# Čisti kompajlirane datoteke
-make clean
-
-# Pomoć
-make help
-```
-
-### Ručno kompajliranje
-
 ```bash
 # Kompajliranje servera
 gcc -Wall -o server server.c
@@ -142,8 +124,6 @@ gcc -Wall -o ctrl control_client.c
 ### Automatizirani test
 
 ```bash
-make test
-# ili
 python3 test_forward.py
 ```
 
@@ -174,7 +154,6 @@ Nakon što oba klijenta pošalju barem jedan paket, posrednik će ih registrirat
 | `server.c` | UDP posrednik server |
 | `control_client.c` | Kontrolni klijent za upravljanje posrednikom |
 | `test_forward.py` | Automatizirani test skript |
-| `Makefile` | Automatizacija kompajliranja i testiranja |
 
 ## Funkcionalnosti
 
