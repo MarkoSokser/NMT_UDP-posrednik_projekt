@@ -1,0 +1,4 @@
+Luka Hrupec - Kontrolna logika servera (ON/OFF/RESET obrada), select petlja, cleanup, prezentacija projekta
+Luka Kukec - Implementacija server.c (UDP socket, prosljeđivanje paketa, registracija peerova)
+Luka Šulentić - Implementacija control_client.c (kontrolni klijent, naredbe ON/OFF/RESET/STATUS)
+Marko Sokser - Pisanje test_forward.py, testiranje sustava, dokumentacija, rješavanje grešaka i debugging
