@@ -147,6 +147,96 @@ nc -u 127.0.0.1 5000
 
 Nakon što oba klijenta pošalju barem jedan paket, posrednik će ih registrirati i početi prosljeđivati pakete između njih.
 
+## Detaljno ručno testiranje (unos poruka i očekivani rezultat)
+
+Nakon pokretanja servera i uključivanja forwarding-a, oba UDP klijenta (nc) moraju ostati otvorena u interaktivnom načinu rada.
+
+Terminal 3 – Peer 1
+```
+nc -u 127.0.0.1 5000
+```
+
+Unesite poruku i pritisnite Enter, npr.:
+
+Pozdrav s klijenta 1
+
+Terminal 4 – Peer 2
+```
+nc -u 127.0.0.1 5000
+```
+
+Unesite poruku i pritisnite Enter, npr.:
+
+Bok s klijenta 2
+
+### Očekivano ponašanje (forwarding = ON)
+
+Nakon što oba klijenta pošalju barem jednu poruku, posrednik ih registrira i započinje prosljeđivanje.
+
+#### Očekivani output:
+
+Terminal 3 (Peer 1) vidi:
+
+```
+Bok s klijenta 2
+```
+
+Terminal 4 (Peer 2) vidi:
+
+```
+Pozdrav s klijenta 1
+```
+
+Svaka sljedeća poruka poslana s jednog klijenta odmah se pojavljuje na drugom klijentu.
+
+### Dodatne provjere (kontrolne naredbe)
+
+Provjera stanja posrednika
+
+U Terminalu 2:
+
+```
+./ctrl 127.0.0.1 5001 STATUS
+```
+
+
+
+Isključivanje prosljeđivanja (OFF test)
+
+```
+./ctrl 127.0.0.1 5001 OFF
+```
+
+Očekivano ponašanje:
+
+- Poruke poslane iz Terminala 3 više se ne pojavljuju u Terminalu 4
+- Poruke iz Terminala 4 više se ne pojavljuju u Terminalu 3
+- Posrednik i dalje prima pakete, ali ih ne prosljeđuje
+
+ Ovo potvrđuje ispravnost OFF funkcionalnosti.
+
+Ponovno uključivanje prosljeđivanja
+
+```
+./ctrl 127.0.0.1 5001 ON
+```
+
+Prosljeđivanje se nastavlja bez potrebe za restartom servera.
+
+Reset registriranih peerova
+
+```
+./ctrl 127.0.0.1 5001 RESET
+```
+
+Očekivano ponašanje:
+
+- Svi postojeći peerovi se brišu
+- Klijenti moraju ponovno poslati po jednu poruku kako bi bili registrirani
+- Forwarding započinje tek nakon nove registracije oba peera
+
+
+
 ## Datoteke
 
 | Datoteka | Opis |
